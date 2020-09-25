@@ -7149,7 +7149,7 @@ $as_echo_n "checking for DPDK library... " >&6; }
 
 
     if pkg-config --exists libdpdk ; then
-      RTE_LIB=pkg-config --variable=libdir libdpdk
+      RTE_LIB=$(pkg-config --variable=libdir libdpdk)
     else
       RTE_LIB="$RTE_SDK_BIN/lib"
       if test ! -f "$RTE_SDK_BIN/include/rte_eal.h"; then
@@ -7159,6 +7159,8 @@ $as_echo_n "checking for DPDK library... " >&6; }
 Cannot find \$RTE_SDK_BIN/include/rte_eal.h for DPDK.
 Define \$RTE_SDK and \$RTE_TARGET as per DPDK documentation,
 or install DPDK using meson, or the system package manager.
+Note with the system package manager, you need the devel package
+version (dpdk-dev or dpdk-devel).
 
 =========================================" "$LINENO" 5
       fi
